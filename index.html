@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Truth table</title>
+</head>
+
+<body x-data="{line: '', tokens:[]}" class="font-sans text-white bg-zinc-950">
+  <div class="container px-8 py-12 mx-auto" id="app">
+    <h1 class="mb-5 text-3xl font-bold text-center uppercase">
+      Truth table
+    </h1>
+
+    <section class="mb-5" >
+
+      <label class="grid w-full grid-cols-5 mb-5 border border-teal-100 rounded-lg lg:grid-cols-12" for="line">
+        <input x-on:input="Evaluate" class="w-full col-span-4 px-2 py-2 text-white bg-transparent outline-none lg:col-span-11" type="text" id="line"
+          placeholder="Enter logical expression..." x-model="line" x-effect="if(line){Evaluate()}" />
+        <button class="col-span-1 p-2 bg-contain rounded-tr-lg rounded-br-lg bg-slate-900/30 hover:bg-slate-900/60" @click="Evaluate" id="eval">Eval</button>
+      </label>
+      <article class="grid grid-cols-4 gap-4 lg:grid-cols-10 place-self-center">
+        <button type="button" @click="line += 'p'" class="px-4 py-2 transition-all duration-1000 rounded-lg shadow-md bg-slate-800/30 hover:shadow-sm hover:bg-slate-900/80">p</button>
+        <button type="button" @click="line += 'q'" class="px-4 py-2 transition-all duration-1000 rounded-lg shadow-md bg-slate-800/30 hover:shadow-sm hover:bg-slate-900/80">q</button>
+        <button type="button" @click="line += 'r'" class="px-4 py-2 transition-all duration-1000 rounded-lg shadow-md bg-slate-800/30 hover:shadow-sm hover:bg-slate-900/80">r</button>
+        <button type="button" @click="line += '¬'" class="px-4 py-2 transition-all duration-1000 rounded-lg shadow-md bg-slate-800/30 hover:shadow-sm hover:bg-slate-900/80">¬</button>
+        <button type="button" @click="line += '∧'" class="px-4 py-2 transition-all duration-1000 rounded-lg shadow-md bg-slate-800/30 hover:shadow-sm hover:bg-slate-900/80">∧</button>
+        <button type="button" @click="line += '∨'" class="px-4 py-2 transition-all duration-1000 rounded-lg shadow-md bg-slate-800/30 hover:shadow-sm hover:bg-slate-900/80">∨</button>
+        <button type="button" @click="line += '→'" class="px-4 py-2 transition-all duration-1000 rounded-lg shadow-md bg-slate-800/30 hover:shadow-sm hover:bg-slate-900/80">→</button>
+        <button type="button" @click="line += '↔'" class="px-4 py-2 transition-all duration-1000 rounded-lg shadow-md bg-slate-800/30 hover:shadow-sm hover:bg-slate-900/80">↔</button>
+        <button type="button" @click="line += '('" class="col-span-2 px-4 py-2 transition-all duration-1000 rounded-lg shadow-md bg-slate-800/30 hover:shadow-sm hover:bg-slate-900/80 lg:col-span-1">(</button>
+        <button type="button" @click="line += ')'" class="col-span-2 px-4 py-2 transition-all duration-1000 rounded-lg shadow-md bg-slate-800/30 hover:shadow-sm hover:bg-slate-900/80 lg:col-span-1">)</button>
+      </article>
+
+
+    </section>
+    <!-- <section x-data="{open: false}" class="w-full">
+      <button title="code-block-control" @click="open = !open">
+        <template x-if="!open">
+          <span>
+            &HorizontalLine;
+          </span>
+        </template>
+        <template x-if="open">
+          <span>
+            &VerticalLine;
+          </span>
+        </template>
+      </button>
+      <pre x-show="open" x-transition>
+        <code>
+          nothing to show...
+        </code>
+      </pre>
+    </section> -->
+    <section class="mb-4" id="token-block">
+        <h3 class="mb-5 font-sans text-xl font-semibold text-center uppercase" >Tokens</h3>
+      
+    </section>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
