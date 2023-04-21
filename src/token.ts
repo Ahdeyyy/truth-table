@@ -5,7 +5,7 @@ export type Token = {
   Literal: string;
 };
 
-let keywords: Map<string,string>;
+let keywords: Map<string,string> = new Map();
 
 export const ILLEGAL = "ILLEGAL",
   EOF = "EOF",

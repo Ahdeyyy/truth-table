@@ -19,7 +19,7 @@
 
       <label class="grid w-full grid-cols-5 mb-5 border border-teal-100 rounded-lg lg:grid-cols-12" for="line">
         <input x-on:input="Evaluate" class="w-full col-span-4 px-2 py-2 text-white bg-transparent outline-none lg:col-span-11" type="text" id="line"
-          placeholder="Enter logical expression..." x-model="line" x-effect="if(line){Evaluate()}" />
+          placeholder="Enter logical expression..." x-model="line" x-effect="line;Evaluate()" />
         <button class="col-span-1 p-2 bg-contain rounded-tr-lg rounded-br-lg bg-slate-900/30 hover:bg-slate-900/60" @click="Evaluate" id="eval">Eval</button>
       </label>
       <article class="grid grid-cols-4 gap-4 lg:grid-cols-10 place-self-center">
