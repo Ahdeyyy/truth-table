@@ -5,6 +5,8 @@ export type Token = {
   Literal: string;
 };
 
+let keywords: Map<string,string>;
+
 export const ILLEGAL = "ILLEGAL",
   EOF = "EOF",
   // IDENTIFIERS
@@ -19,8 +21,9 @@ export const ILLEGAL = "ILLEGAL",
   RPAREN = ")";
 
 export function LookupIdent(ident: string): TokenType {
-  // if tok, ok := keywords[ident]; ok {
-  // 	return tok
-  // }
+  let tok = keywords.get(ident);
+  if (tok) {
+  	return tok
+  }
   return IDENT;
 }

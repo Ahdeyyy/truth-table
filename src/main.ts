@@ -4,6 +4,7 @@ import "./style.css";
 import Alpine from "alpinejs";
 import { EOF, Token } from "./token";
 
+//@ts-ignore
 window.Evaluate = function () {
   let input: string = document.querySelector("input")?.value || "";
   let token_block = document.getElementById("token-block");
@@ -60,5 +61,6 @@ window.Evaluate = function () {
   }
 };
 
+//@ts-ignore
 window.Alpine = Alpine;
 Alpine.start();

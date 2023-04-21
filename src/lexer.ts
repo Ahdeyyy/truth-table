@@ -9,6 +9,7 @@ type Lexer = {
     skipWhitespace: Function
     readIdentifier: Function
     nextToken: Function
+	peekChar: Function
 }
 
 
@@ -21,7 +22,8 @@ export function NewLexer(input: string) :Lexer {
         readChar: readChar,
         skipWhitespace: skipWhitespace,
         readIdentifier: readIdentifier,
-        nextToken: NextToken
+        nextToken: NextToken,
+		peekChar: peekChar
     
     }
 	l.readChar()
